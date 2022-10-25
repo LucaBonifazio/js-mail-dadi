@@ -3,16 +3,17 @@
 // controlla che sia nella lista di chi può accedere,
 // stampa un messaggio appropriato sull’esito del controllo.
 
-const arrMail = ['luca@gmail.com', 'marco@gmail.com', 'paolo@gmail.com', 'franco@gmail.com','gianni@gmail.com'];
-console.log (arrMail);
 const userMail = document.querySelector('#mail');
 console.log (userMail);
 
+const arrMail = ['luca@gmail.com', 'marco@gmail.com', 'paolo@gmail.com', 'franco@gmail.com','gianni@gmail.com'];
+console.log (arrMail);
+
 for (let i = 0; i < arrMail.length; i++) {
-    if (userMail === arrMail[i]){
-        console.log('True');
+    if (userMail != arrMail[i]){
+        console.log('La mail non è presente');
     } else {
-        console.log('False');
+        console.log('Email confermata!')
     }
 };
 
