@@ -10,19 +10,18 @@ const eleDetelete = document.querySelector('.btn-danger');
 const eleResult = document.querySelector('.result');
 
 eleConferme.addEventListener('click', function () {
-    
-    for (let i = 0; i < arrMail.length; i++) {
+    let userMailCheck = false; 
+    for (let i = 0; i < arrMail.length; i++) {  
         if (userMail.value === arrMail[i]){
-            eleResult.innerHTML = ('Mail corretta')
-        } else {
-            eleResult.innerHTML = ('La mail non è presente');
+            userMailCheck = true;
         }
     };
+    if (userMailCheck == true){
+        eleResult.innerHTML = ('Mail corretta')
+    } else {
+        eleResult.innerHTML = ('La mail non è presente');
+    }
     console.log(eleResult);
-});
-
-eleDetelete.addEventListener('click', function () {
-    document.location.reload();
 });
 
 // Gioco dei dadi
@@ -46,9 +45,11 @@ eleDetelete.addEventListener('click', function () {
         
         if (numberDice > numberDiceBot){
             eleResultShot.innerHTML = (`Hai vinto!` );
-        } else {
+        } else if (numberDice < numberDiceBot) {
             eleResultShot.innerHTML = (`Hai perso!` );
-        };
+        } else {
+            eleResultShot.innerHTML = (`Pareggio!` );
+        }
     });
 
 // BONUS:
@@ -56,3 +57,7 @@ eleDetelete.addEventListener('click', function () {
 // Prima di partire a scrivere codice poniamoci qualche domanda:
 // Che ci sia un array da qualche parte?
 // Se dobbiamo confrontare qualcosa che "cosa" ci serve?
+
+eleDetelete.addEventListener('click', function () {
+    document.location.reload();
+});
