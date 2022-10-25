@@ -3,14 +3,13 @@
 // controlla che sia nella lista di chi può accedere,
 // stampa un messaggio appropriato sull’esito del controllo.
 
+const userMail = document.querySelector('#mail');
 const arrMail = ['luca@gmail.com', 'marco@gmail.com', 'paolo@gmail.com', 'franco@gmail.com','gianni@gmail.com'];
-const eleResult = document.querySelector('.result');
 const eleConferme = document.querySelector('.btn-success');
 const eleDetelete = document.querySelector('.btn-danger');
+const eleResult = document.querySelector('.result');
 
 eleConferme.addEventListener('click', function () {
-
-    const userMail = document.querySelector('#mail');
     
     for (let i = 0; i < arrMail.length; i++) {
         if (userMail.value === arrMail[i]){
@@ -19,6 +18,7 @@ eleConferme.addEventListener('click', function () {
             eleResult.innerHTML = ('La mail non è presente');
         }
     };
+    console.log(eleResult);
 });
 
 eleDetelete.addEventListener('click', function () {
@@ -29,13 +29,27 @@ eleDetelete.addEventListener('click', function () {
 // Generare un numero random da 1 a 6, sia per il giocatore sia per il computer.
 // Stabilire il vincitore, in base a chi fa il punteggio più alto.
 
-    // const myDice = document.querySelector('.my_dice');
-    // numberDice = Math.floor(Math.random() * 6);
-    // eleWagon.innerHTML = (`Il tuo dado: ${numberDice}` );
+    const eleResultShot = document.querySelector('.dice_result');
+    const eleShot = document.querySelector('.btn-info');
 
-    // const botDice = document.querySelector('.bot_dice');
-    // numberDice = Math.floor(Math.random() * 6);
-    // eleCode.innerHTML = (`Il dado del Bot: ${numberDice}` );
+    eleShot.addEventListener('click', function () {
+
+        const myDice = document.querySelector('.my_dice');
+        numberDice = Math.floor(Math.random() * 6);
+        eleResultShot.innerHTML = (`Il tuo dado: ${numberDice}` );
+        myDice.innerHTML = numberDice;
+        
+        const botDice = document.querySelector('.bot_dice');
+        numberDiceBot = Math.floor(Math.random() * 6);
+        eleResultShot.innerHTML = (`Il dado del Bot: ${numberDiceBot}` );
+        botDice.innerHTML = numberDiceBot;
+        
+        if (numberDice > numberDiceBot){
+            eleResultShot.innerHTML = (`Hai vinto!` );
+        } else {
+            eleResultShot.innerHTML = (`Hai perso!` );
+        };
+    });
 
 // BONUS:
 // Usiamo un input e un bottone per inserire la mail e poi mostriamo i risultati in pagina.
