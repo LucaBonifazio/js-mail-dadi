@@ -34,12 +34,12 @@ eleConferme.addEventListener('click', function () {
     eleShot.addEventListener('click', function () {
 
         const myDice = document.querySelector('.my_dice');
-        numberDice = Math.floor(Math.random() * 6);
+        numberDice = Math.floor(Math.random() * 6 + 1);
         eleResultShot.innerHTML = (`Il tuo dado: ${numberDice}` );
         myDice.innerHTML = numberDice;
         
         const botDice = document.querySelector('.bot_dice');
-        numberDiceBot = Math.floor(Math.random() * 6);
+        numberDiceBot = Math.floor(Math.random() * 6 + 1);
         eleResultShot.innerHTML = (`Il dado del Bot: ${numberDiceBot}` );
         botDice.innerHTML = numberDiceBot;
         
