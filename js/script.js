@@ -16,7 +16,7 @@ eleConferme.addEventListener('click', function () {
             userMailCheck = true;
         }
     };
-    if (userMailCheck == true){
+    if (userMailCheck){
         eleResult.innerHTML = ('Mail corretta')
     } else {
         eleResult.innerHTML = ('La mail non è presente');
